@@ -1,0 +1,41 @@
+Utilities to identify human mtDNA haplotypes.
+
+oldowan.mitotype is a set of utilities to haplotype human mtDNA sequences.
+
+Installation Instructions
+=========================
+
+This package is pure Python and has no dependencies outside of the standard
+library. The easist way to install is using ``easy_install`` from the
+setuptools_ package.  This usually goes something like this::
+
+	$ easy_install oldowan.mitotype
+
+or on a unix-like system, assuming you are installing to the main Python
+``site-packages`` directory as a non-privileged user, this::
+
+	$ sudo easy_install oldowan.mitotype
+
+You may also use the standard python distutils setup method. Download the
+current source archive from the file list towards the bottom of this page,
+unarchive it, and install. On Mac OS X and many other unix-like systems, having
+downloaded the archive and changed to the directory containing this archive in
+your shell, this might go something like::
+
+	$ tar xvzf oldowan.mitotype*
+	$ cd oldowan.mitotype*
+	$ python setup.py install
+
+Quick Start
+===========
+
+TODO
+
+Release History
+===============
+
+TODO (August 16, 2008)
+    initial release of module.
+
+
+.. _setuptools: http://peak.telecommunity.com/DevCenter/EasyInstall
