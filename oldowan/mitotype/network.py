@@ -2,6 +2,7 @@ import networkx as nx
 
 from networkx.algorithms.traversal.path import single_source_shortest_path
 from oldowan.polymorphism import Polymorphism
+from oldowan.polymorphism import InfiniteRange
 from oldowan.mtdna import rCRSlist
 
 
@@ -76,8 +77,18 @@ def network_haplotypes(G, source=0):
             polys = polys + G.edge_labels[edge]
         polys = list(x for x in polys if x is not None)
         polys.sort()
-        haplotypes[(source, end)] = polys
+        haplotypes[end] = polys
     return haplotypes
+
+
+def network_match(G, H, query, polyrange=InfiniteRange()):
+    reduced_query = list(x for x in query if x in polyrange)
+    reduced_H = {}
+    for node, hap in H.iteritems():
+        reduced_H[node] = list(x for x in hap if x in polyrange)
+    for poly in reduced_query:
+        for node, hap in reduced_hap.iteritems():
+            pass # evaluate match
 
 
 def has_duplicates(l):
