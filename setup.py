@@ -23,7 +23,13 @@ setup(name='oldowan.mitotype',
       license='MIT',
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
       include_package_data=False,
+      package_data = {
+          'data': ['*.yaml', '*.shelved'],
+      },
       namespace_packages = ['oldowan'],
+      install_requires=[
+          "oldowan.polymorphism >= 1.0.0",
+      ],
       zip_safe=False,
       test_suite = 'nose.collector',
       )
