@@ -29,7 +29,14 @@ setup(name='oldowan.mitotype',
       namespace_packages = ['oldowan'],
       install_requires=[
           "oldowan.polymorphism >= 1.0.0",
+          "oldowan.mtconvert >= 1.0.0",
+          "PyYAML",
       ],
       zip_safe=False,
+      entry_points = {
+          'console_scripts': [
+              'mitotype = oldowan.mitotype.commandline:run_command',
+          ],
+      },
       test_suite = 'nose.collector',
       )
