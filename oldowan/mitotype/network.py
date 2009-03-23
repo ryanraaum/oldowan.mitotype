@@ -5,7 +5,6 @@ from oldowan.polymorphism import Polymorphism
 from oldowan.polymorphism import InfiniteRange
 from oldowan.mtdna import rCRSlist
 
-
 def transition(position):
     ts_dict = {'A':'G', 'G':'A', 'C':'T', 'T':'C'}
     return ts_dict[rCRSlist[position]]
