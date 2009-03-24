@@ -30,6 +30,7 @@ setup(name='oldowan.mitotype',
       install_requires=[
           "oldowan.polymorphism >= 1.0.0",
           "oldowan.mtconvert >= 1.0.0",
+          "oldowan.fasta >= 1.0.0",
           "PyYAML",
       ],
       zip_safe=False,
