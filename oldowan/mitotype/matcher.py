@@ -5,6 +5,8 @@ from oldowan.mitotype.motif import MotifQuery
 
 from oldowan.mtconvert import seq2sites, str2sites
 
+from oldowan.fasta import fasta
+
 from pkg_resources import resource_string, resource_filename
 
 import shelve
@@ -132,19 +134,12 @@ class HVRMatcher(object):
         return [self.__mm.match(self.__qm.new_query_from_sites(sites, label=label))]
 
     def match_fasta(self, fasta_text, do_align=False):
-        from mt_identify.externals.fasta import read_fasta
-        entries = read_fasta(fasta_text.split('\n'))
-
-        if do_align:
-            results = []
-            for entry in entries:
-                [results.append(r) for r in self.match_sequence(entry.sequence, do_align=True, label=entry.name)]
-            return results
+        fasta_fileobj = fasta(fasta_text, 's').readentries()
 
         queries = []   
-        for entry in entries:
-            query = self.__qm.new_query(entry.sequence)
-            query.label = entry.name
+        for entry in fasta_fileobj:
+            query = self.__qm.new_query(entry['sequence'])
+            query.label = entry['name']
             queries.append(query)
         return [self.__mm.match(q) for q in queries]
 
