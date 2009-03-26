@@ -1,11 +1,10 @@
 """This is the oldowan.mitotype package."""
 
 import os
-version_file = open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'VERSION'))
-version = version_file.read().strip()
-version_file.close()
 
-__all__ = ['network', 'network_haplotypes', 'Motif', 'MotifCollection'] 
+VERSION = open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'VERSION')).read().strip()
+
+__all__ = ['read_network_csv', 'network_haplotypes', 'Motif', 'MotifCollection'] 
 
 try:
     from oldowan.mitotype.network import read_network_csv

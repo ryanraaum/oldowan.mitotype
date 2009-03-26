@@ -1,10 +1,14 @@
 from setuptools import setup, find_packages
 import sys, os
 
+PACKAGE = 'mitotype'
+
+VERSION = open(os.path.join(os.path.dirname(os.path.realpath(__file__)),'oldowan', PACKAGE, 'VERSION')).read().strip()
+
 desc_lines = open('README', 'r').readlines()
 
-setup(name='oldowan.mitotype',
-      version='1.0.0',
+setup(name='oldowan.%s' % PACKAGE,
+      version=VERSION,
       description=desc_lines[0],
       long_description=''.join(desc_lines[2:]),
       classifiers=[
@@ -34,6 +38,7 @@ setup(name='oldowan.mitotype',
           "PyYAML",
       ],
       zip_safe=False,
+      data_files=[("oldowan/%s" % PACKAGE, ["oldowan/%s/VERSION" % PACKAGE])],
       entry_points = {
           'console_scripts': [
               'mitotype = oldowan.mitotype.commandline:run_command',
