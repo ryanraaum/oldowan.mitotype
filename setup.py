@@ -27,9 +27,6 @@ setup(name='oldowan.%s' % PACKAGE,
       license='MIT',
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
       include_package_data=False,
-      package_data = {
-          'data': ['*.yaml', '*.shelved'],
-      },
       namespace_packages = ['oldowan'],
       install_requires=[
           "oldowan.polymorphism >= 1.0.0",
@@ -38,7 +35,8 @@ setup(name='oldowan.%s' % PACKAGE,
           "PyYAML",
       ],
       zip_safe=False,
-      data_files=[("oldowan/%s" % PACKAGE, ["oldowan/%s/VERSION" % PACKAGE])],
+      data_files=[("oldowan/%s" % PACKAGE, ["oldowan/%s/VERSION" % PACKAGE]),
+                  ("data/", ["data/hvr1_motifs.yaml", "data/motifs.shelved"])],
       entry_points = {
           'console_scripts': [
               'mitotype = oldowan.mitotype.commandline:run_command',
