@@ -1,6 +1,6 @@
 import networkx as nx
 
-from networkx.algorithms.traversal.path import single_source_shortest_path
+from networkx import single_source_shortest_path
 from oldowan.polymorphism import Polymorphism
 from oldowan.polymorphism import InfiniteRange
 from oldowan.mtdna import rCRSlist
