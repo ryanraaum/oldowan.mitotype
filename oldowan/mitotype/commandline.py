@@ -1,7 +1,7 @@
 from optparse import OptionParser
 import os,sys
 
-from oldowan.mitotype.hvr_matcher import HVRMatcher
+from oldowan.mitotype.matcher import HVRMatcher
 from oldowan.mitotype.prevalidate import prevalidate_submission
 
 def run_command():
@@ -74,7 +74,7 @@ def run_command():
     if not vi.valid:
         print 'ERROR: Could not validate input: %s' % vi.problem
 
-    results = hvrm.match(working_text, vi, do_align=options.align)
+    results = hvrm.match(working_text, vi)
 
     # If outfile option is used, make stdout point to that file
     if options.outfile:
